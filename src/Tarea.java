@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tarea {
+    public Persona persona = new Persona();
     public String asignaciones;
     public ArrayList <String>listatareas = new ArrayList<>();
 
@@ -22,17 +23,11 @@ public class Tarea {
         this.listatareas = listatareas;
     }
 
-    public Tarea() {
-        this.asignaciones = asignaciones;
-        this.listatareas = listatareas;
-        this.persona = persona;
-    }
-    Persona persona = new Persona();
     public void creartareas(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese tareas:");
         listatareas.add(scanner.nextLine());
-        persona.datospersona();
+        persona.datosPersona();
         BufferedWriter bw = null;
         FileWriter fw = null;
         try{
@@ -43,7 +38,7 @@ public class Tarea {
             fw = new FileWriter(archivo.getAbsoluteFile(), true);
             bw = new BufferedWriter(fw);
             for (String elemento : listatareas ){
-                bw.write(elemento + " , "+ persona.listanombres + "\n");
+                bw.write(elemento + " , "+ persona.listaNombres + "\n");
             }
             System.out.println("Información agregada exitosamente");
         }
@@ -63,6 +58,4 @@ public class Tarea {
         }
 
     }
-
-
 }

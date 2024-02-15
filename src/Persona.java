@@ -1,29 +1,23 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Persona  {
-    public ArrayList<String> listanombres = new ArrayList<>();
+public class Persona {
+    public String nombre;
+    public int edad;
+    public String puestoTrabajo;
 
-    public ArrayList<String> getListanombres() {
-        return listanombres;
-    }
-
-    public void setListanombres(ArrayList<String> listanombres) {
-        this.listanombres = listanombres;
-    }
-
-    public Persona(ArrayList<String> listanombres) {
-        this.listanombres = listanombres;
+    public Persona(String nombre, int edad, String puestoTrabajo) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.puestoTrabajo = puestoTrabajo;
     }
 
     public Persona() {
+
     }
 
-    public void datospersona(){
-        Scanner scanner = new Scanner (System.in);
-        System.out.println("Ingrese el nombre de la persona encargada de realizar la tarea:");
-        listanombres.add(scanner.nextLine());
-    }
+    public String getDatosPersona(){
 
+    }
 }
 

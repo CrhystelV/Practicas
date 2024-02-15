@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CreacionProyecto extends Persona {
+public class Proyecto {
+    private ArrayList<Persona> personas;
+
     String nombrearchivo;
+
     public String getNombrearchivo() {
         return nombrearchivo;
     }
@@ -15,21 +18,18 @@ public class CreacionProyecto extends Persona {
         this.nombrearchivo = nombrearchivo;
     }
 
-    public CreacionProyecto(ArrayList<String> listanombres, String nombrearchivo) {
-        super(listanombres);
-        this.nombrearchivo = nombrearchivo;
+    public Proyecto() {
+    }
 
-    }
-    public CreacionProyecto() {
-    }
     public void nombreproyecto(){
         Scanner scanner = new Scanner (System.in);
         System.out.println("Nombre del proyecto: ");
         this.nombrearchivo=scanner.nextLine();
     }
+
     public void creacionarchivo(){
         nombreproyecto();
-        super.datospersona();
+        personas.datosPersona();
         BufferedWriter bw = null;
         FileWriter fw = null;
         try{
@@ -39,8 +39,8 @@ public class CreacionProyecto extends Persona {
             }
             fw = new FileWriter(archivo.getAbsoluteFile(), true);
             bw = new BufferedWriter(fw);
-            for (String elemento : listanombres ){
-                bw.write(elemento + "\n");
+            for (Persona persona : personas ){
+                bw.write(persona.getDatosPersona() + "\n");
 
             }
             System.out.println("Información agregada exitosamente");
@@ -62,5 +62,24 @@ public class CreacionProyecto extends Persona {
 
     }
 
+    public void crearPersona() {
+        Scanner scanner = new Scanner (System.in);
+        Persona persona = new Persona();
+
+        System.out.println("Nombre:");
+        persona.nombre = scanner.nextLine();
+
+        System.out.println("Edad:");
+        persona.edad = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Puesto de trabajo:");
+        persona.puestoTrabajo = scanner.nextLine();
+
+        personas.add(persona);
+    }
+
+    public Persona getPersonaACargo() {
+
+    }
 }
 
