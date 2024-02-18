@@ -8,16 +8,17 @@ public class Main{
                 "1.Crear proyecto\n" +
                 "2.Ingresar tarea\n" +
                 "3.Estado tareas\n" +
-                "4.Cambiar estado de tareas");
+                "4. Cambiar estado de tareas");
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
-                Proyecto crearProyecto = new Proyecto();
-                crearProyecto.creacionarchivo();
+                Archivos archivo = new Archivos();
+                archivo.creacionArchivo();
+
+
                 break;
             case 2:
-                Tarea tarea = new Tarea();
-                tarea.creartareas();
+
                 break;
             case 3:
 
@@ -32,10 +33,3 @@ public class Main{
 
     }
 }
-
-/*
-* 5. Crear persona
-* Nombre:
-* Edad:
-* Puesto de trabajo:
-* */
