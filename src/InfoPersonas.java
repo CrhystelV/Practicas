@@ -29,7 +29,7 @@ public class InfoPersonas {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nombre responsable: ");
         nombres = scanner.nextLine();
-        System.out.println("Cargo: ");
+        System.out.println("Cargo : ");
         cargos= scanner.nextLine();
 
 

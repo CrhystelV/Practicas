@@ -13,7 +13,7 @@ public class Main{
         switch(opc){
             case 1:
                 Archivos archivo = new Archivos();
-                archivo.creaArchivo();
+                archivo.crearArchivo();
 
 
                 break;
