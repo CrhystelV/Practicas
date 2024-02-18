@@ -27,7 +27,7 @@ public class InfoPersonas {
     }
     public void agregarPersona(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nombre: ");
+        System.out.println("Nombre del responsable: ");
         nombres = scanner.nextLine();
         System.out.println("Cargo: ");
         cargos= scanner.nextLine();
