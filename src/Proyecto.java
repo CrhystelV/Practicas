@@ -16,7 +16,7 @@ public class Proyecto {
     }
     public void soloNombreProyecto(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Nombre proyecto: ");
+        System.out.println("Nombre del proyecto: ");
         nombreProyecto = scanner.nextLine();
     }
 }

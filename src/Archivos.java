@@ -9,7 +9,7 @@ public class Archivos {
     Proyecto proyecto = new Proyecto();
     InfoPersonas personas = new InfoPersonas();
 
-    public void creacionArchivo(){
+    public void crearArchivo(){
         proyecto.soloNombreProyecto();
         personas.agregarPersona();
 
@@ -26,7 +26,7 @@ public class Archivos {
             System.out.println("Info agregada correctamente");
         }
         catch (Exception e){
-            System.out.println("ERROR AL ESCRIBIR EN ARCHIVO");
+            System.out.println("ERROR AL ESCRIBIR  ARCHIVO");
         }
         finally {
             try{
