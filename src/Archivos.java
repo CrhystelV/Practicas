@@ -60,8 +60,6 @@ public class Archivos {
         System.out.println("Personas dentro del proyecto: \n");
         FileReader fre = null;
         BufferedReader bre = null;
-        try{
-            fre = new FileReader()
-        }
+
     }
 }
