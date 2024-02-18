@@ -9,7 +9,7 @@ public class Archivos {
     Proyecto proyecto = new Proyecto();
     InfoPersonas personas = new InfoPersonas();
 
-    public void crearArchivo(){
+    public void creacionArchivo(){
         proyecto.soloNombreProyecto();
         personas.agregarPersona();
 
