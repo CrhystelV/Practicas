@@ -14,11 +14,10 @@ public class Main{
             case 1:
                 Archivos archivo = new Archivos();
                 archivo.crearArchivo();
-
-
                 break;
             case 2:
-
+                Archivos archivos = new Archivos();
+                archivos.designarPersona();
                 break;
             case 3:
 

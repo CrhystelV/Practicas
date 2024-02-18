@@ -1,4 +1,24 @@
+import java.util.Scanner;
+
 public class Tarea{
-/*ya estoy harta y nisiquiera estoy en la mitad del proyecto
-* puedo con tooodo pero primero me quejo*/
+    public String tareas;
+
+    public Tarea() {
+
+    }
+
+    public String getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(String tareas) {
+        this.tareas = tareas;
+    }
+
+    public void agregarTarea(){
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Ingreso tarea: ");
+        tareas = scanner.nextLine();
+    }
+
 }
