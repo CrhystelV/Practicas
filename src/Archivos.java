@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Archivos {
     public ArrayList<String> listaEncargados = new ArrayList<>();
+    public ArrayList<String> listaTareas = new ArrayList<>();
 
     public ArrayList<String> getListaEncargados() {
         return listaEncargados;
@@ -52,14 +53,33 @@ public class Archivos {
         }
 
     }
-    public void designarPersona(){
+    public void crearTareas(){
         Tarea tareas = new Tarea();
         InfoPersonas personas = new InfoPersonas();
-        System.out.println("Seleccione el proyecto:\n");
-        tareas.agregarTarea();
-        System.out.println("Personas dentro del proyecto: \n");
-        FileReader fre = null;
-        BufferedReader bre = null;
+        int contador = 0;
+        do {
+            tareas.agregarTarea();
+            if("s".equals(tareas.tarea)){
+                tareas.confirmacion= false;
+            }
+            this.listaTareas.add(tareas.getTareas());
+
+        }while (tareas.confirmacion == true);
+        try (FileWriter archivo = new FileWriter("tareas.txt", true)){
+            PrintWriter pw = new PrintWriter(archivo);
+            listaTareas.remove("s");
+            for( String contenidoIn : listaTareas){
+                contador++;
+                pw.println((contador) + " "+ "PENDIENTE: " + contenidoIn);
+
+            }
+            pw.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
+
 }

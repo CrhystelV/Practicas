@@ -17,7 +17,7 @@ public class Main{
                 break;
             case 2:
                 Archivos archivos = new Archivos();
-                archivos.designarPersona();
+                archivos.crearTareas();
                 break;
             case 3:
 
