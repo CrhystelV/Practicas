@@ -4,6 +4,7 @@ public class Main{
     public static void main(String [] args){
         Scanner opcion = new Scanner(System.in);
         int opc = 0;
+
         System.out.println("Ingrese una opción:\n" +
                 "1.Crear proyecto\n" +
                 "2.Ingresar tarea\n" +

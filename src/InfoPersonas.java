@@ -4,8 +4,6 @@ import java.util.Scanner;
 public class InfoPersonas {
     public String nombres ;
     public String cargos ;
-
-
     public String getNombres() {
         return nombres;
     }

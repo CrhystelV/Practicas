@@ -33,8 +33,6 @@ public class Archivos {
             for (String encargado : listaEncargados){
                 bw.write(encargado);
             }
-
-
             System.out.println("Info agregada correctamente");
         }
         catch (Exception e){

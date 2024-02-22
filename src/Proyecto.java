@@ -6,7 +6,6 @@ public class Proyecto {
     public Proyecto() {
 
     }
-
     public String getNombreProyecto() {
         return nombreProyecto;
     }

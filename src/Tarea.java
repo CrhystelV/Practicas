@@ -19,7 +19,7 @@ public class Tarea{
     public void agregarTarea(){
         Scanner scanner = new Scanner (System.in);
         confirmacion = true;
-        System.out.println("Ingreso tarea (para salir ingrese s): ");
+        System.out.println("Ingreso tarea (para salir s): ");
         tarea = scanner.nextLine();
         /*if("s".equals(tarea)){
             confirmacion= false;
