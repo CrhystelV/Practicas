@@ -7,24 +7,33 @@ public class Main{
 
         System.out.println("Ingrese una opción:\n" +
                 "1.Crear proyecto\n" +
-                "2.Ingresar tarea\n" +
-                "3.Estado tareas\n" +
-                "4. Cambiar estado de tareas");
+                "2.Abrir proyecto" +
+                "3.Ingresar tarea\n" +
+                "4.Estado tareas\n" +
+                "5.Cambiar estado de tareas");
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
                 Archivos archivo = new Archivos();
-                archivo.crearArchivo();
+                archivo.crearProyecto();
                 break;
             case 2:
+
+                break;
+            case 3:
                 Archivos archivos = new Archivos();
                 archivos.crearTareas();
                 break;
-            case 3:
+            case 4:
+                Archivos archi = new Archivos();
+                archi.mostrarTareas();
+
 
                 break;
-            case 4:
-
+            case 5:
+                Archivos ar = new Archivos();
+                ar.crearTareas();
+                ar.modificarEstado();
                 break;
             default:
 
