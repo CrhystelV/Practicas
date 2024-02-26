@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Archivos {
-    public ArrayList<String> listaEncargados = new ArrayList<>();
-    public ArrayList<String> listaTareas = new ArrayList<>();
-    public String puntoGuardado;
+    private ArrayList<String> listaEncargados = new ArrayList<>();
+    private ArrayList<String> listaTareas = new ArrayList<>();
+    public ArrayList<ArrayList> listaInformacion = new ArrayList<>();
+    public String puntoGuardado = "C://Users//Usuario//IdeaProjects//Vaina//Proyectos.txt";
 
     public ArrayList<String> getListaEncargados() {
         return listaEncargados;
@@ -20,8 +21,7 @@ public class Archivos {
         Proyecto proyecto = new Proyecto();
         InfoPersonas personas = new InfoPersonas();
         proyecto.soloNombreProyecto();
-        personas.agregarPersona();
-        File carpeta = new File("C://Users//Usuario//IdeaProjects//Vaina//Proyectos.txt");
+        File carpeta = new File(puntoGuardado);
         if(!carpeta.exists()){
             if(carpeta.mkdirs()){
                 System.out.println("Proyecto creado correctamente");
@@ -31,14 +31,9 @@ public class Archivos {
         }
 
         this.listaEncargados.add(personas.getNombres() + " , " +personas.getCargos() + "\n");
-        puntoGuardado = ("C://Users//Usuario//IdeaProjects//Vaina//Proyectos.txt//" + proyecto.getNombreProyecto() + ".txt");
-        try (FileWriter archivo = new FileWriter(puntoGuardado)){
+        this.puntoGuardado=("C://Users//Usuario//IdeaProjects//Vaina//Proyectos.txt//" + proyecto.getNombreProyecto() + ".txt" );
+        try (FileWriter archivo = new FileWriter(puntoGuardado, true)){
             PrintWriter pw = new PrintWriter(archivo);
-
-            for( String encargado : listaEncargados){
-                pw.println(encargado);
-            }
-            pw.close();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -53,28 +48,36 @@ public class Archivos {
                 System.out.println(listado[i]);
             }
         }
-    }
 
+
+    }
     public void crearTareas(){
         Tarea tareas = new Tarea();
+        Proyecto proyecto = new Proyecto();
         InfoPersonas personas = new InfoPersonas();
         int contador = 0;
         do {
             tareas.agregarTarea();
             if("s".equals(tareas.tarea)){
                 tareas.confirmacion= false;
+                break;
             }
-            this.listaTareas.add(tareas.getTareas());
-
+            personas.agregarPersona();
+            this.listaTareas.add("PENDIENTE: " + tareas.getTareas());
+            this.listaEncargados.add(", ENCARGADO: " + personas.getNombres() + " , " + personas.getCargos());
         }while (tareas.confirmacion == true);
-        try (FileWriter archivo = new FileWriter("tareas.txt", true)){
+        try (FileWriter archivo = new FileWriter("TAREAS.TXT", true)){
             PrintWriter pw = new PrintWriter(archivo);
             listaTareas.remove("s");
+            listaEncargados.remove("s");
             for( String contenidoIn : listaTareas){
-                contador++;
-                pw.println((contador) + "."+ "PENDIENTE: " + contenidoIn);
+                for (String contenido : listaEncargados){
+                    contador++;
+                    pw.println((contador) + "."+ contenidoIn +contenido);
+                }
+
             }
-            pw.close();
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -93,6 +96,10 @@ public class Archivos {
         }
     }
     public void modificarEstado(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("INgres algo");
+        listaTareas.add(scanner.nextLine());
+        System.out.println(listaTareas);
 
 
 

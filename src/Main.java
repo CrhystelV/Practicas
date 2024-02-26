@@ -7,7 +7,7 @@ public class Main{
 
         System.out.println("Ingrese una opción:\n" +
                 "1.Crear proyecto\n" +
-                "2.Abrir proyecto" +
+                "2.Abrir proyecto\n" +
                 "3.Ingresar tarea\n" +
                 "4.Estado tareas\n" +
                 "5.Cambiar estado de tareas");
@@ -23,6 +23,7 @@ public class Main{
             case 3:
                 Archivos archivos = new Archivos();
                 archivos.crearTareas();
+                System.out.println(archivos.listaInformacion);
                 break;
             case 4:
                 Archivos archi = new Archivos();
@@ -32,7 +33,7 @@ public class Main{
                 break;
             case 5:
                 Archivos ar = new Archivos();
-                ar.crearTareas();
+
                 ar.modificarEstado();
                 break;
             default:
