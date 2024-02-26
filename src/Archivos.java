@@ -9,8 +9,10 @@ public class Archivos {
     private ArrayList<Persona> listaEncargados = new ArrayList<>();
     public ArrayList<ArrayList> listaInformacion = new ArrayList<>();
     public String puntoGuardado = "C://Vaina//Proyectos";
+}
 
-    public void crearProyecto() {
+
+    /*public void crearProyecto() {
         crearCarpeta();
 
         Proyecto proyecto = new Proyecto();
@@ -61,7 +63,6 @@ public class Archivos {
                     contador++;
                     pw.println((contador) + "."+ contenidoIn +contenido);
 
-                    JSON
                 }
 
             }
@@ -98,5 +99,4 @@ public class Archivos {
         } catch (IOException e) {
             System.out.println("Quihubo parce, tenemos un error: " + e);
         }
-    }
-}
+    }*/

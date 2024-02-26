@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ManejadorDeTareas {
     public ArrayList<Tarea> tareas = new ArrayList<>();
 
-    private boolean ingresoTerminado = false;
+    private boolean ingresoTerminado = true;
 
     public boolean getIngresoTerminado() {
         return ingresoTerminado;
@@ -18,7 +18,7 @@ public class ManejadorDeTareas {
         String ingresoUsuario = scanner.nextLine();
 
         if(ingresoUsuario.equals("s")){
-            ingresoTerminado = true;
+            ingresoTerminado = false;
             return;
         }
 
@@ -72,9 +72,6 @@ public class ManejadorDeTareas {
     }
 
     public void modificarEstado(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("INgres algo");
-        listaTareas.add(scanner.nextLine());
-        System.out.println(listaTareas);
+
     }
 }

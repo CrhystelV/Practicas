@@ -14,27 +14,25 @@ public class Main{
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
-                Archivos archivo = new Archivos();
-                archivo.crearProyecto();
+                ManejoDePersonas manejoDePersonas = new ManejoDePersonas();
+                manejoDePersonas.agregarPersona();
+
                 break;
             case 2:
 
                 break;
             case 3:
-                Archivos archivos = new Archivos();
-                archivos.crearTareas();
-                System.out.println(archivos.listaInformacion);
+
+                ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
+                manejoDeArchivos.escrituraDeArchivos();
                 break;
             case 4:
-                Archivos archi = new Archivos();
-                archi.mostrarTareas();
+
 
 
                 break;
             case 5:
-                Archivos ar = new Archivos();
 
-                ar.modificarEstado();
                 break;
             default:
 
