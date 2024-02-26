@@ -1,30 +1,12 @@
 import java.util.Scanner;
 
-public class Tarea{
+public class Tarea {
     public String tarea;
-    boolean confirmacion;
 
-    public Tarea() {
+    public TiposDeEstado estado;
 
+    public Tarea(String tarea, TiposDeEstado estado) {
+        this.tarea = tarea;
+        this.estado = estado;
     }
-
-    public String getTareas() {
-        return tarea;
-    }
-
-    public void setTareas(String tareas) {
-        this.tarea = tareas;
-    }
-
-    public void agregarTarea(){
-        Scanner scanner = new Scanner (System.in);
-        confirmacion = true;
-        System.out.println("Ingreso tarea (para salir s): ");
-        tarea = scanner.nextLine();
-        /*if("s".equals(tarea)){
-            confirmacion= false;
-        }*/
-
-    }
-
 }

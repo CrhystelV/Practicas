@@ -1,21 +1,15 @@
 import java.util.Scanner;
 
 public class Proyecto {
-    String nombreProyecto;
+    private String nombre;
 
-    public Proyecto() {
-
-    }
-    public String getNombreProyecto() {
-        return nombreProyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreProyecto(String nombreProyecto) {
-        this.nombreProyecto = nombreProyecto;
-    }
-    public void soloNombreProyecto(){
+    public void pedirNombre(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nombre del proyecto: ");
-        nombreProyecto = scanner.nextLine();
+        nombre = scanner.nextLine();
     }
 }
