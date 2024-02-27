@@ -1,0 +1,10 @@
+Tarea 1:
+Descripción tarea: hola
+Estado: EN_PROCESO
+Encargado: josé
+Cargo: jefe
+Tarea 2:
+Descripción tarea: hola1
+Estado: PENDIENTE
+Encargado: josé1
+Cargo: jefe1

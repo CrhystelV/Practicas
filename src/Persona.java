@@ -5,5 +5,8 @@ public class Persona {
 
     public String cargos;
 
-
+    public Persona(String nombre, String cargos) {
+        this.nombre = nombre;
+        this.cargos = cargos;
+    }
 }

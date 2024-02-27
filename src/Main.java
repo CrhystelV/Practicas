@@ -14,8 +14,8 @@ public class Main{
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
-                ManejoDePersonas manejoDePersonas = new ManejoDePersonas();
-                manejoDePersonas.agregarPersona();
+                ManejadorDePersonas manejadorDePersonas = new ManejadorDePersonas();
+                manejadorDePersonas.agregarPersona();
 
                 break;
             case 2:

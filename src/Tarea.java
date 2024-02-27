@@ -1,12 +1,13 @@
-import java.util.Scanner;
-
 public class Tarea {
-    public String tarea;
+    public String descripcionTarea;
 
     public TiposDeEstado estado;
 
-    public Tarea(String tarea, TiposDeEstado estado) {
-        this.tarea = tarea;
+    public Persona encargado;
+
+    public Tarea(String tarea, TiposDeEstado estado, Persona encargado) {
+        this.descripcionTarea = tarea;
         this.estado = estado;
+        this.encargado = encargado;
     }
 }
