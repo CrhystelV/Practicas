@@ -10,12 +10,12 @@ public class Main{
                 "2.Abrir proyecto\n" +
                 "3.Ingresar tarea\n" +
                 "4.Estado tareas\n" +
-                "5.Cambiar estado de tareas");
+                "5.Editar tareas");
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
                 ManejadorDePersonas manejadorDePersonas = new ManejadorDePersonas();
-                manejadorDePersonas.agregarPersona();
+                manejadorDePersonas.obtenerPersona();
 
                 break;
             case 2:
@@ -23,8 +23,8 @@ public class Main{
                 break;
             case 3:
 
-                ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
-                manejoDeArchivos.escrituraDeArchivos();
+                ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos();
+                manejadorDeProyectos.guardarTareas();
                 break;
             case 4:
 
@@ -32,7 +32,8 @@ public class Main{
 
                 break;
             case 5:
-
+                ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos();
+                manejadorDeProyectos1.editarTareas();
                 break;
             default:
 

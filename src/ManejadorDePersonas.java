@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ManejadorDePersonas {
-    public static Persona agregarPersona() {
+    public static Persona obtenerPersona() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nombre responsable: ");
         String nombre = scanner.nextLine();

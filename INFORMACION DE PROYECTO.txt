@@ -1,10 +1,15 @@
 Tarea 1:
+Descripción tarea: chao
+Estado: FINALIZADO
+Encargado: le moi
+Cargo: mi cargo pues
+Tarea 2:
 Descripción tarea: hola
-Estado: EN_PROCESO
+Estado: PENDIENTE
 Encargado: josé
 Cargo: jefe
-Tarea 2:
-Descripción tarea: hola1
+Tarea 3:
+Descripción tarea: jelou
 Estado: PENDIENTE
-Encargado: josé1
-Cargo: jefe1
+Encargado: jksndfk
+Cargo: cnk

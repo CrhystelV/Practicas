@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//todo implementar esto, y ponerle un encargado
 public class Proyecto {
     private String nombre;
 
