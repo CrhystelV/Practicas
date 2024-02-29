@@ -1,18 +1,23 @@
 import java.io.*;
 
 public class ManejoDeArchivos {
+    public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
     public void escrituraDeArchivos(){
         ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
-        ManejoDePersonas manejoDePersonas = new ManejoDePersonas();
-        manejadorDeTareas.agregarTarea();
-        manejoDePersonas.agregarPersona();
-        try(FileWriter archivo = new FileWriter("INFORMACION DE PROYECTO.txt", true)){
+        ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
+        manejadorDeProyecto.crearProyecto();
+        manejadorDeTareas.agregarTareas();
+        String rutaCarpeta = manejadorDeProyecto.getRutaCarpeta();
+        try(FileWriter archivo = new FileWriter(rutaCarpeta + "TAREAS DE PROYECTO.txt", false)){
             PrintWriter bw = new PrintWriter(archivo);
-            for( Tarea tarea :  manejadorDeTareas.tareas){
-                for (Persona persona : manejoDePersonas.persona){
-                    bw.write("Tarea: " + manejadorDeTareas.tareas + "\n"
-                            + "Encargado: " + manejoDePersonas.persona+ "\n" );
-                }
+
+            for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
+                Tarea tarea = manejadorDeTareas.tareas.get(i);
+                bw.write("Tarea " + (i + 1) + ":\n" +
+                        "Descripción tarea: " + tarea.descripcionTarea + "\n"
+                        + "Estado: " + tarea.estado + "\n"
+                        + "Encargado: " + tarea.encargado.nombre + "\n" +
+                        "Cargo: " + tarea.encargado.cargos + "\n");
             }
         }
         catch(IOException e) {
@@ -32,6 +37,9 @@ public class ManejoDeArchivos {
                 System.out.println(s);
             }
         }
+    }
+    public void abrirArchivos() {
+
     }
 
 }

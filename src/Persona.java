@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Persona {
-    private String nombre;
+    public String nombre;
 
-    private String cargos;
+    public String cargos;
 
     public String getNombre() {
         return nombre;

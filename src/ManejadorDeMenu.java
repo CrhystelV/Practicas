@@ -21,6 +21,10 @@ public class ManejadorDeMenu {
                 manejoDeArchivos.mostrarArchivosEnCarpeta();
 
                 break;
+                case 3:
+                    ManejoDeArchivos manejoDeArchivos1 = new ManejoDeArchivos();
+                    manejoDeArchivos1.escrituraDeArchivos();
+                    break;
             default:
 
                 break;
@@ -38,12 +42,12 @@ public class ManejadorDeMenu {
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
-                ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
-                manejoDeArchivos.escrituraDeArchivos();
+                /*ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
+                manejoDeArchivos.escrituraDeArchivos();*/
                 break;
             case 2:
-                ManejoDePersonas manejoDePersonas = new ManejoDePersonas();
-                manejoDePersonas.agregarPersona();
+                ManejadorDePersonas manejoDePersonas = new ManejadorDePersonas();
+                manejoDePersonas.obtenerPersona();
                 break;
             case 3:
                 break;

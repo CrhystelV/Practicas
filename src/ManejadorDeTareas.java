@@ -27,8 +27,8 @@ public class ManejadorDeTareas {
 
         System.out.println("Descripción de la tarea: " + tarea.descripcionTarea + "\n"
         + "Estado de la tarea: " + getEstadoParaImprimir(tarea.estado) + "\n"
-        + "Encargado: " + tarea.encargado.nombre + "\n"
-        + "Cargo: " + tarea.encargado.cargos + "\n");
+        + "Encargado: " + tarea.encargado.getNombre() + "\n"
+        + "Cargo: " + tarea.encargado.getCargos() + "\n");
 
         int opc = 0;
         while(opc < 1 || opc > 3) {

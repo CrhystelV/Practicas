@@ -1,8 +1,5 @@
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
@@ -10,17 +7,25 @@ import java.nio.file.Files;
 public class ManejadorDeProyecto {
     public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
 
+    public String getRutaCarpeta() {
+        return puntoGuardado;
+    }
+
     public void crearProyecto() {
         crearCarpeta();
         Proyecto proyectos = new Proyecto();
         proyectos.pedirNombre();
-        String rutaParaCarpeta = puntoGuardado + proyectos.getNombre() + ".txt";
+        String rutaParaCarpeta = puntoGuardado + proyectos.getNombre()  ;
         try  {
             File archivo = new File(rutaParaCarpeta);
-            if (archivo.createNewFile()){
-                System.out.println("Archivo creado con exito");
+            if (!archivo.exists()){
+                if(archivo.mkdirs()){
+                    System.out.println("carpeta con archivo creada");
+                }
+
             }else{
                 System.out.println("El archivo ya existe");
+
             }
         }
         catch (Exception e){
