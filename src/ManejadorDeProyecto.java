@@ -6,21 +6,26 @@ import java.nio.file.Files;
 
 public class ManejadorDeProyecto {
     public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
+    public String rutaParaCarpeta;
 
     public String getRutaCarpeta() {
         return puntoGuardado;
     }
 
     public void crearProyecto() {
+        ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
         crearCarpeta();
         Proyecto proyectos = new Proyecto();
         proyectos.pedirNombre();
-        String rutaParaCarpeta = puntoGuardado + proyectos.getNombre()  ;
+        rutaParaCarpeta = puntoGuardado + proyectos.getNombre() + "/"  ;
+        manejoDeArchivos.escrituraDeArchivos();
         try  {
+
             File archivo = new File(rutaParaCarpeta);
             if (!archivo.exists()){
                 if(archivo.mkdirs()){
                     System.out.println("carpeta con archivo creada");
+
                 }
 
             }else{
@@ -31,6 +36,8 @@ public class ManejadorDeProyecto {
         catch (Exception e){
             e.printStackTrace();
         }
+
+
 
     }
 

@@ -1,14 +1,13 @@
 import java.io.*;
 
 public class ManejoDeArchivos {
-    public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
+    public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto";
     public void escrituraDeArchivos(){
         ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
         ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
-        manejadorDeProyecto.crearProyecto();
         manejadorDeTareas.agregarTareas();
-        String rutaCarpeta = manejadorDeProyecto.getRutaCarpeta();
-        try(FileWriter archivo = new FileWriter(rutaCarpeta + "TAREAS DE PROYECTO.txt", false)){
+
+        try(FileWriter archivo = new FileWriter(manejadorDeProyecto.rutaParaCarpeta + "TAREAS DE PROYECTO.txt", false)){
             PrintWriter bw = new PrintWriter(archivo);
 
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){

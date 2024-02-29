@@ -21,10 +21,6 @@ public class ManejadorDeMenu {
                 manejoDeArchivos.mostrarArchivosEnCarpeta();
 
                 break;
-                case 3:
-                    ManejoDeArchivos manejoDeArchivos1 = new ManejoDeArchivos();
-                    manejoDeArchivos1.escrituraDeArchivos();
-                    break;
             default:
 
                 break;
