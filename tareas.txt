@@ -1,5 +1,0 @@
-1 PENDIENTE: Treas 1
-2 PENDIENTE: Tareas 3
-3 PENDIENTE: Treas 4
-1 PENDIENTE: adios
-2 PENDIENTE: jndf

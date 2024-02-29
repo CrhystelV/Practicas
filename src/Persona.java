@@ -1,9 +1,17 @@
 import java.util.Scanner;
 
 public class Persona {
-    public String nombre;
+    private String nombre;
 
-    public String cargos;
+    private String cargos;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCargos() {
+        return cargos;
+    }
 
     public Persona(String nombre, String cargos) {
         this.nombre = nombre;
