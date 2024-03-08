@@ -5,22 +5,27 @@ public class ManejadorDeProyectos {
 
     private final ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
     ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
+    ManejadorDeMenu manejador = new ManejadorDeMenu();
     public ManejadorDeProyectos() {
 
     }
-    public ManejadorDeProyectos(ManejoDeArchivos manejador){
-        this.manejoDeArchivos = manejador;
+    public ManejadorDeProyectos(ManejoDeArchivos manejoDeArchivos1, ManejadorDeMenu manejadorMenu){
+        this.manejoDeArchivos = manejoDeArchivos1;
+        this.manejador = manejadorMenu;
 
     }
 
-    /*private void leerProyecto() {
+    public void leerProyecto() {
         leerTareas();
+        manejadorDeTareas.editarTareas();
+        guardarTarea();
+
     }
 
     private void leerTareas() {
 
         try {
-            FileReader fileReader = new FileReader("TAREAS.txt");
+            FileReader fileReader = new FileReader(manejoDeArchivos.ruta);
             BufferedReader buffer = new BufferedReader(fileReader);
 
             while (buffer.readLine() != null) {
@@ -34,11 +39,14 @@ public class ManejadorDeProyectos {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
-    public void guardarTareas(){
+    public void guardarYAgregarTareas(){
         manejadorDeTareas.agregarTareas();
-        try(FileWriter archivo = new FileWriter(manejoDeArchivos.ruta, true)){
+       guardarTarea();
+    }
+    public void guardarTarea() {
+        try(FileWriter archivo = new FileWriter(manejoDeArchivos.ruta, false)){
             PrintWriter bw = new PrintWriter(archivo);
 
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
@@ -55,7 +63,4 @@ public class ManejadorDeProyectos {
         }
     }
 
-    /*public void editarTareas() {
-        manejadorDeTareas.editarTareas();
-    }*/
 }

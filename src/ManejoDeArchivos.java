@@ -49,14 +49,12 @@ public class ManejoDeArchivos {
         }
 
     }
-    public String abrirArchivosEnCarpeta() {
-        ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(this);
+    public void abrirArchivosEnCarpeta() {
         System.out.println("Escoga el proyecto que desea abrir: ");
         Scanner scanner = new Scanner(System.in);
         int opc = Integer.parseInt(scanner.nextLine());
         if (opc<1 || opc> listado.length ){
             System.out.println("Opcion invalida");
-            return null;
         }
         File carpetaSeleccionada = listado[opc-1];
         File archivoDeTareas = new File(carpetaSeleccionada, "TAREAS.txt");
@@ -64,23 +62,20 @@ public class ManejoDeArchivos {
                 String contenido = Files.readString(archivoDeTareas.toPath());
                 ruta= archivoDeTareas.getAbsolutePath();
                 System.out.println(contenido);
-                manejadorDeProyectos.guardarTareas();
-                return ruta;
             } catch (IOException e){
                 e.printStackTrace();
-                return null;
+
+
             }
 
     }
     public void abrirYSeleccionar() {
-        ManejadorDeMenu manejadorDeMenu = new ManejadorDeMenu();
+        ManejadorDeMenu manejadorDeMenu = new ManejadorDeMenu(this);
         mostrarArchivosEnCarpeta();
         abrirArchivosEnCarpeta();
+        manejadorDeMenu.presentarOpcionesEspecificas();
 
-    }
-    public void abrirYAgregar() {
-        ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(this);
-        manejadorDeProyectos.guardarTareas();
+
     }
 
 

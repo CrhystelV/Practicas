@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
 public class ManejadorDeMenu {
+    ManejoDeArchivos manejadorArchivos = new ManejoDeArchivos();
+
+
+    public ManejadorDeMenu() {
+    }
+
+    public ManejadorDeMenu(ManejoDeArchivos manejoDeArchivos) {
+        this.manejadorArchivos = manejoDeArchivos;
+    }
+
     public void presentarOpcionesGenerales() {
 
         Scanner opcion = new Scanner(System.in);
@@ -20,7 +30,6 @@ public class ManejadorDeMenu {
                 ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
                 manejoDeArchivos.abrirYSeleccionar();
 
-
                 break;
             default:
 
@@ -35,17 +44,18 @@ public class ManejadorDeMenu {
         System.out.println("Ingrese una opción a modificar:\n" +
                 "1.Ingresar tarea\n" +
                 "2.Editar tareas\n" +
-                "3.Cambiar estado de tareas\n" +
-                        "4. Salir");
+                "3.Salir"
+                        );
         opc= Integer.parseInt(opcion.nextLine());
         switch(opc){
             case 1:
-
-                ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos();
-                manejadorDeProyectos.guardarTareas();
+                ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(manejadorArchivos,this);
+                manejadorDeProyectos.guardarYAgregarTareas();
 
                 break;
             case 2:
+                ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos(manejadorArchivos,this);
+                manejadorDeProyectos1.leerProyecto();
 
                 break;
             case 3:
