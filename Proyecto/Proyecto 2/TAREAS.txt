@@ -1,0 +1,5 @@
+TAREA 1:
+Descripción tarea: Otra cosa
+Estado: PENDIENTE
+Encargado: dfg
+Cargo: rt

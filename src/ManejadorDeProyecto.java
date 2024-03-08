@@ -25,7 +25,8 @@ public class ManejadorDeProyecto {
 
             }else{
                 System.out.println("El archivo ya existe");
-
+                System.out.println("------------------------------------------");
+                return;
             }
         }
         catch (Exception e){

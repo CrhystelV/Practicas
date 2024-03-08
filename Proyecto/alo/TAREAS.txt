@@ -1,0 +1,5 @@
+TAREA 1:
+Descripción tarea: sdf
+Estado: PENDIENTE
+Encargado: dfg
+Cargo: fg

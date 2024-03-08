@@ -16,13 +16,15 @@ public class ManejadorDeMenu {
         Scanner opcion = new Scanner(System.in);
         int opc = 0;
 
+
+        while(opc!=3){
             System.out.println("Ingrese una opción:\n" +
                     "1.Crear proyecto\n" +
                     "2.Abrir proyecto\n" +
                     "3.Salir" );
-        while(opc < 1 || opc > 3){
+            opc= Integer.parseInt(opcion.nextLine());
             try{
-                opc= Integer.parseInt(opcion.nextLine());
+
                 switch(opc){
                     case 1:
                         ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
@@ -53,17 +55,16 @@ public class ManejadorDeMenu {
     }
     public void presentarOpcionesEspecificas() {
         Scanner opcion = new Scanner(System.in);
-        int opc ;
-
-        System.out.println("Ingrese una opción a modificar:\n" +
-                "1.Agregar tarea\n" +
-                "2.Editar tareas\n" +
-                "3.Salir"
-                        );
-        opc = Integer.parseInt(opcion.nextLine());
-        while(opc < 1 || opc > 3) {
+        int opc=0 ;
+        while(opc!=4) {
+            System.out.println("Ingrese una opción a modificar:\n" +
+                    "1.Agregar tarea\n" +
+                    "2.Editar tareas\n" +
+                    "3.Volver a menú principal\n" +
+                    "4.Salir"
+            );
+            opc = Integer.parseInt(opcion.nextLine());
             try {
-
                 switch (opc) {
                     case 1:
                         ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(manejadorArchivos, this);
@@ -73,10 +74,12 @@ public class ManejadorDeMenu {
                     case 2:
                         ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos(manejadorArchivos, this);
                         manejadorDeProyectos1.leerProyecto();
-
                         break;
                     case 3:
-                        break;
+                        presentarOpcionesGenerales();
+                        return;
+                    case 4:
+                        System.exit(0);
                     default:
                         System.out.println("Opcion invalida");
                         System.out.println("------------------------------------------");
