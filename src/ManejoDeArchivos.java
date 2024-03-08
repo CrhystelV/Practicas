@@ -21,7 +21,7 @@ public class ManejoDeArchivos {
             PrintWriter bw = new PrintWriter(archivo);
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
                 Tarea tarea = manejadorDeTareas.tareas.get(i);
-                bw.write("Tarea " + (i + 1) + ":\n" +
+                bw.write("TAREA " + (i + 1) + ":\n" +
                         "Descripción tarea: " + tarea.descripcionTarea + "\n"
                         + "Estado: " + tarea.estado + "\n"
                         + "Encargado: " + tarea.encargado.nombre + "\n" +
@@ -43,6 +43,7 @@ public class ManejoDeArchivos {
             return;
         }
         else {
+            System.out.println("------------------------------------------");
             for (int i =0; i< listado.length; i++) {
                 System.out.println(i+1 + ". "+ listado[i].getName());
             }
@@ -50,29 +51,44 @@ public class ManejoDeArchivos {
 
     }
     public void abrirArchivosEnCarpeta() {
-        System.out.println("Escoga el proyecto que desea abrir: ");
         Scanner scanner = new Scanner(System.in);
-        int opc = Integer.parseInt(scanner.nextLine());
-        if (opc<1 || opc> listado.length ){
-            System.out.println("Opcion invalida");
-        }
-        File carpetaSeleccionada = listado[opc-1];
-        File archivoDeTareas = new File(carpetaSeleccionada, "TAREAS.txt");
+        while(true){
+            System.out.println("Escoga el proyecto que desea abrir: ");
             try{
-                String contenido = Files.readString(archivoDeTareas.toPath());
-                ruta= archivoDeTareas.getAbsolutePath();
-                System.out.println(contenido);
-            } catch (IOException e){
-                e.printStackTrace();
-
-
+                int opc = Integer.parseInt(scanner.nextLine());
+                if (opc<1 || opc> listado.length ){
+                    System.out.println("Opcion invalida");
+                    System.out.println("------------------------------------------");
+                    continue;
+                }
+                System.out.println("------------------------------------------");
+                File carpetaSeleccionada = listado[opc-1];
+                File archivoDeTareas = new File(carpetaSeleccionada, "TAREAS.txt");
+                try{
+                    String contenido = Files.readString(archivoDeTareas.toPath());
+                    ruta= archivoDeTareas.getAbsolutePath();
+                    System.out.println(contenido);
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+                break;
             }
+            catch (NumberFormatException e){
+                System.out.println("Opcion invalida");
+                System.out.println("------------------------------------------");
+                continue;
+            }
+
+
+        }
+
 
     }
     public void abrirYSeleccionar() {
         ManejadorDeMenu manejadorDeMenu = new ManejadorDeMenu(this);
         mostrarArchivosEnCarpeta();
         abrirArchivosEnCarpeta();
+        System.out.println("------------------------------------------\n");
         manejadorDeMenu.presentarOpcionesEspecificas();
 
 

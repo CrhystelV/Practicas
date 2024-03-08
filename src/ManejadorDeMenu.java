@@ -18,23 +18,37 @@ public class ManejadorDeMenu {
 
             System.out.println("Ingrese una opción:\n" +
                     "1.Crear proyecto\n" +
-                    "2.Abrir proyecto\n" );
-        opc= Integer.parseInt(opcion.nextLine());
-            switch(opc){
-            case 1:
-                ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
-                manejadorDeProyecto.crearProyecto();
+                    "2.Abrir proyecto\n" +
+                    "3.Salir" );
+        while(opc < 1 || opc > 3){
+            try{
+                opc= Integer.parseInt(opcion.nextLine());
+                switch(opc){
+                    case 1:
+                        ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
+                        manejadorDeProyecto.crearProyecto();
+                        break;
+                    case 2:
+                        ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
+                        manejoDeArchivos.abrirYSeleccionar();
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        System.out.println("Opcion invalida");
+                        System.out.println("------------------------------------------");
+                        continue;
+                }
+            }
+            catch(NumberFormatException e){
+                System.out.println("Valor invalido");
+                System.out.println("------------------------------------------");
+                continue;
+            }
 
-                break;
-            case 2:
-                ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
-                manejoDeArchivos.abrirYSeleccionar();
-
-                break;
-            default:
-
-                break;
         }
+
+
 
     }
     public void presentarOpcionesEspecificas() {
@@ -42,26 +56,38 @@ public class ManejadorDeMenu {
         int opc ;
 
         System.out.println("Ingrese una opción a modificar:\n" +
-                "1.Ingresar tarea\n" +
+                "1.Agregar tarea\n" +
                 "2.Editar tareas\n" +
                 "3.Salir"
                         );
-        opc= Integer.parseInt(opcion.nextLine());
-        switch(opc){
-            case 1:
-                ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(manejadorArchivos,this);
-                manejadorDeProyectos.guardarYAgregarTareas();
+        opc = Integer.parseInt(opcion.nextLine());
+        while(opc < 1 || opc > 3) {
+            try {
 
-                break;
-            case 2:
-                ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos(manejadorArchivos,this);
-                manejadorDeProyectos1.leerProyecto();
+                switch (opc) {
+                    case 1:
+                        ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(manejadorArchivos, this);
+                        manejadorDeProyectos.guardarYAgregarTareas();
 
-                break;
-            case 3:
-                break;
-            default:
-                break;
+                        break;
+                    case 2:
+                        ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos(manejadorArchivos, this);
+                        manejadorDeProyectos1.leerProyecto();
+
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        System.out.println("Opcion invalida");
+                        System.out.println("------------------------------------------");
+                        continue;
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Valor invalido");
+                System.out.println("------------------------------------------");
+                continue;
+            }
         }
 
     }

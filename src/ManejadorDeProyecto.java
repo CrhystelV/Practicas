@@ -9,12 +9,6 @@ public class ManejadorDeProyecto {
     public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
     public String rutaParaCarpeta;
 
-    public String getRutaCarpeta() {
-        return puntoGuardado;
-    }
-
-
-
     public void crearProyecto() {
         ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos(this);
         crearCarpeta();

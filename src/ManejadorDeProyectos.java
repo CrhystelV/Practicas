@@ -1,27 +1,21 @@
 import java.io.*;
 
 public class ManejadorDeProyectos {
-    //todo agregar instancia de proyecto
 
     private final ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
     ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
     ManejadorDeMenu manejador = new ManejadorDeMenu();
-    public ManejadorDeProyectos() {
-
-    }
     public ManejadorDeProyectos(ManejoDeArchivos manejoDeArchivos1, ManejadorDeMenu manejadorMenu){
         this.manejoDeArchivos = manejoDeArchivos1;
         this.manejador = manejadorMenu;
 
     }
-
     public void leerProyecto() {
         leerTareas();
         manejadorDeTareas.editarTareas();
         guardarTarea();
 
     }
-
     private void leerTareas() {
 
         try {
@@ -43,7 +37,7 @@ public class ManejadorDeProyectos {
 
     public void guardarYAgregarTareas(){
         manejadorDeTareas.agregarTareas();
-       guardarTarea();
+        guardarTarea();
     }
     public void guardarTarea() {
         try(FileWriter archivo = new FileWriter(manejoDeArchivos.ruta, false)){
@@ -51,7 +45,7 @@ public class ManejadorDeProyectos {
 
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
                 Tarea tarea = manejadorDeTareas.tareas.get(i);
-                bw.write("Tarea " + (i + 1) + ":\n" +
+                bw.write("TAREA " + (i + 1) + ":\n" +
                         "Descripción tarea: " + tarea.descripcionTarea + "\n"
                         + "Estado: " + tarea.estado + "\n"
                         + "Encargado: " + tarea.encargado.nombre + "\n" +
