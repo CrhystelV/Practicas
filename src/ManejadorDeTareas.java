@@ -4,16 +4,27 @@ import java.util.Scanner;
 public class ManejadorDeTareas {
     public ArrayList<Tarea> tareas = new ArrayList<>();
 
-    public void agregarTareas() {
-        while (!agregarTarea());
+    public void imprimirTareas() {
+        for (Tarea tarea : tareas) {
+            System.out.println("Descripción de la tarea: " + tarea.descripcionTarea + "\n"
+                    + "Estado de la tarea: " + getEstadoParaImprimir(tarea.estado) + "\n"
+                    + "Responsable: " + tarea.encargado.getNombre() + "\n"
+                    + "Cargo: " + tarea.encargado.getCargos() + "\n");
+        }
     }
 
-    public boolean agregarTarea(){
-        Scanner scanner = new Scanner (System.in);
+    public void agregarTareas(Proyecto proyecto) {
+        while (!agregarTarea());
+
+        ManejadorDeArchivos.escrituraDeArchivos(proyecto);
+    }
+
+    public boolean agregarTarea() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingreso tarea (para salir s): ");
         String ingresoUsuario = scanner.nextLine();
 
-        if(ingresoUsuario.equals("s")){
+        if (ingresoUsuario.equals("s")) {
             return true;
         }
 
@@ -21,18 +32,18 @@ public class ManejadorDeTareas {
         return false;
     }
 
-    public void editarTareas() {
+    public void editarTareas(Proyecto proyecto) {
         System.out.println("TAREAS DEL PROYECTO");
         Tarea tarea = obtenerTarea();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Descripción de la tarea: " + tarea.descripcionTarea + "\n"
-        + "Estado de la tarea: " + getEstadoParaImprimir(tarea.estado) + "\n"
-        + "Responsable: " + tarea.encargado.getNombre() + "\n"
-        + "Cargo: " + tarea.encargado.getCargos() + "\n");
+                + "Estado de la tarea: " + getEstadoParaImprimir(tarea.estado) + "\n"
+                + "Responsable: " + tarea.encargado.getNombre() + "\n"
+                + "Cargo: " + tarea.encargado.getCargos() + "\n");
 
         int opc = 0;
-        while(opc < 1 || opc > 3) {
+        while (opc < 1 || opc > 3) {
             System.out.println(""" 
                     ¿Qué desea modificar?
                     1. Descripción
@@ -57,17 +68,18 @@ public class ManejadorDeTareas {
                         System.out.println("Opción inválida");
                         break;
                 }
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("El valor ingresado no es correcto.");
             }
         }
+
+        ManejadorDeArchivos.escrituraDeArchivos(proyecto);
     }
 
-    private Tarea obtenerTarea(){
+    private Tarea obtenerTarea() {
         Scanner scanner = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             for (int i = 0; i < tareas.size(); i++) {
                 System.out.println((i + 1) + ". " + tareas.get(i).descripcionTarea);
             }
@@ -81,8 +93,7 @@ public class ManejadorDeTareas {
                 }
 
                 return tareas.get(opc - 1);
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
         }
@@ -92,7 +103,7 @@ public class ManejadorDeTareas {
         int opc;
         Scanner scanner = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             System.out.println("""
                     Ingrese el estado de la tarea:
                     1. Pendiente
@@ -112,8 +123,7 @@ public class ManejadorDeTareas {
                     default:
                         System.out.println("Opción inválida.");
                 }
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Valor ingresado incorrecto.");
             }
         }
@@ -126,8 +136,6 @@ public class ManejadorDeTareas {
             case FINALIZADO -> "Finalizado";
         };
     }
-
-
 
     public void parseTarea(String descripcion, String estado, String encargado, String cargo) {
         tareas.add(new Tarea(descripcion, parseEstado(estado), new Persona(encargado, cargo)));

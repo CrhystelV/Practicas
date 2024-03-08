@@ -1,65 +1,46 @@
 import java.util.Scanner;
 
 public class ManejadorDeMenu {
-    ManejoDeArchivos manejadorArchivos = new ManejoDeArchivos();
-
-
-    public ManejadorDeMenu() {
-    }
-
-    public ManejadorDeMenu(ManejoDeArchivos manejoDeArchivos) {
-        this.manejadorArchivos = manejoDeArchivos;
-    }
-
-    public void presentarOpcionesGenerales() {
-
+    public static void presentarOpcionesGenerales() {
         Scanner opcion = new Scanner(System.in);
         int opc = 0;
-
-
-        while(opc!=3){
+        while (opc != 3) {
             System.out.println("Ingrese una opción:\n" +
                     "1.Crear proyecto\n" +
                     "2.Abrir proyecto\n" +
-                    "3.Salir" );
-            opc= Integer.parseInt(opcion.nextLine());
-            try{
+                    "3.Salir");
+            try {
+                opc = Integer.parseInt(opcion.nextLine());
 
-                switch(opc){
+                switch (opc) {
                     case 1:
-                        ManejadorDeProyecto manejadorDeProyecto = new ManejadorDeProyecto();
-                        manejadorDeProyecto.crearProyecto();
+                        ManejadorDeProyecto.crearProyecto();
                         break;
                     case 2:
-                        ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
-                        manejoDeArchivos.abrirYSeleccionar();
+                        ManejadorDeProyecto.cargarProyecto();
                         break;
                     case 3:
                         break;
                     default:
                         System.out.println("Opcion invalida");
                         System.out.println("------------------------------------------");
-                        continue;
                 }
-            }
-            catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Valor invalido");
                 System.out.println("------------------------------------------");
-                continue;
             }
-
         }
-
-
-
     }
-    public void presentarOpcionesEspecificas() {
+
+    public static void presentarOpcionesEspecificas(ManejadorDeProyecto manejadorDeProyecto) {
+        manejadorDeProyecto.proyecto.manejadorDeTareas.imprimirTareas();
+
         Scanner opcion = new Scanner(System.in);
-        int opc=0 ;
-        while(opc!=4) {
-            System.out.println("Ingrese una opción a modificar:\n" +
+        int opc = 0;
+        while (opc != 4) {
+            System.out.println("Ingrese una opción:\n" +
                     "1.Agregar tarea\n" +
-                    "2.Editar tareas\n" +
+                    "2.Editar proyecto\n" +
                     "3.Volver a menú principal\n" +
                     "4.Salir"
             );
@@ -67,13 +48,10 @@ public class ManejadorDeMenu {
             try {
                 switch (opc) {
                     case 1:
-                        ManejadorDeProyectos manejadorDeProyectos = new ManejadorDeProyectos(manejadorArchivos, this);
-                        manejadorDeProyectos.guardarYAgregarTareas();
-
+                        manejadorDeProyecto.agregarTareas();
                         break;
                     case 2:
-                        ManejadorDeProyectos manejadorDeProyectos1 = new ManejadorDeProyectos(manejadorArchivos, this);
-                        manejadorDeProyectos1.leerProyecto();
+                        manejadorDeProyecto.editarProyecto();
                         break;
                     case 3:
                         presentarOpcionesGenerales();
@@ -83,13 +61,10 @@ public class ManejadorDeMenu {
                     default:
                         System.out.println("Opcion invalida");
                         System.out.println("------------------------------------------");
-                        continue;
                 }
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Valor invalido");
                 System.out.println("------------------------------------------");
-                continue;
             }
         }
 
