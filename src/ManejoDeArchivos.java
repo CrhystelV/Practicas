@@ -16,15 +16,18 @@ public class ManejoDeArchivos {
 
     public void escrituraDeArchivos(){
         ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
+        Proyecto proyecto = new Proyecto();
+        proyecto.getPersonaEncargada();
         manejadorDeTareas.agregarTareas();
         try(FileWriter archivo = new FileWriter(manejador.rutaParaCarpeta + "TAREAS.txt", true)){
             PrintWriter bw = new PrintWriter(archivo);
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
                 Tarea tarea = manejadorDeTareas.tareas.get(i);
-                bw.write("TAREA " + (i + 1) + ":\n" +
+                bw.write("ENCARGADO DEL PROYECTO: " + proyecto.getPersonaEncargada()+"\n\n"+
+                        "TAREA " + (i + 1) + ":\n" +
                         "Descripción tarea: " + tarea.descripcionTarea + "\n"
                         + "Estado: " + tarea.estado + "\n"
-                        + "Encargado: " + tarea.encargado.nombre + "\n" +
+                        + "Responsable: " + tarea.encargado.nombre + "\n" +
                         "Cargo: " + tarea.encargado.cargos + "\n");
 
             }

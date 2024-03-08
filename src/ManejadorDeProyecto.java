@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
-import java.util.Scanner;
 
 public class ManejadorDeProyecto {
     public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
@@ -13,7 +12,7 @@ public class ManejadorDeProyecto {
         ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos(this);
         crearCarpeta();
         Proyecto proyectos = new Proyecto();
-        proyectos.pedirNombre();
+        proyectos.pedirNombreDeProyecto();
         rutaParaCarpeta = puntoGuardado + proyectos.getNombre() + "/"  ;
         try  {
             File archivo = new File(rutaParaCarpeta);

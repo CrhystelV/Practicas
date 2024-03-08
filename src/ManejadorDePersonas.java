@@ -10,4 +10,6 @@ public class ManejadorDePersonas {
         System.out.println();
         return new Persona(nombre, cargos);
     }
+
+
 }

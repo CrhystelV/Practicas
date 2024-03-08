@@ -25,7 +25,7 @@ public class ManejadorDeProyectos {
             while (buffer.readLine() != null) {
                 String descripcion = buffer.readLine().replace("Descripción tarea: ", "");
                 String estado = buffer.readLine().replace("Estado: ", "");
-                String encargado = buffer.readLine().replace("Encargado: ", "");
+                String encargado = buffer.readLine().replace("Responsable: ", "");
                 String cargo = buffer.readLine().replace("Cargo: ", "");
 
                 manejadorDeTareas.parseTarea(descripcion, estado, encargado, cargo);
@@ -48,7 +48,7 @@ public class ManejadorDeProyectos {
                 bw.write("TAREA " + (i + 1) + ":\n" +
                         "Descripción tarea: " + tarea.descripcionTarea + "\n"
                         + "Estado: " + tarea.estado + "\n"
-                        + "Encargado: " + tarea.encargado.nombre + "\n" +
+                        + "Responsable: " + tarea.encargado.nombre + "\n" +
                         "Cargo: " + tarea.encargado.cargos + "\n");
             }
         }
