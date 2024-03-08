@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.util.Scanner;
 
 public class ManejadorDeProyecto {
     public String puntoGuardado = "C:/Users/Usuario/IdeaProjects/Vaina/Proyecto/";
@@ -12,19 +13,19 @@ public class ManejadorDeProyecto {
         return puntoGuardado;
     }
 
+
+
     public void crearProyecto() {
-        ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
+        ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos(this);
         crearCarpeta();
         Proyecto proyectos = new Proyecto();
         proyectos.pedirNombre();
         rutaParaCarpeta = puntoGuardado + proyectos.getNombre() + "/"  ;
-        manejoDeArchivos.escrituraDeArchivos();
         try  {
-
             File archivo = new File(rutaParaCarpeta);
             if (!archivo.exists()){
                 if(archivo.mkdirs()){
-                    System.out.println("carpeta con archivo creada");
+                    System.out.println();
 
                 }
 
@@ -36,7 +37,7 @@ public class ManejadorDeProyecto {
         catch (Exception e){
             e.printStackTrace();
         }
-
+        manejoDeArchivos.escrituraDeArchivos();
 
 
     }
@@ -69,4 +70,7 @@ public class ManejadorDeProyecto {
         }
 
     }
+
+
+
 }

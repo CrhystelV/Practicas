@@ -21,7 +21,7 @@ public class ManejadorDeTareas {
         return false;
     }
 
-    public void editarTareas() {
+    /*public void editarTareas() {
         Tarea tarea = obtenerTarea();
         Scanner scanner = new Scanner(System.in);
 
@@ -61,9 +61,9 @@ public class ManejadorDeTareas {
                 System.out.println("El valor ingresado no es correcto.");
             }
         }
-    }
+    }*/
 
-    private Tarea obtenerTarea(){
+    /*private Tarea obtenerTarea(){
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
@@ -85,7 +85,7 @@ public class ManejadorDeTareas {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 
     private TiposDeEstado getEstado() {
         int opc;
@@ -118,7 +118,7 @@ public class ManejadorDeTareas {
         }
     }
 
-    private String getEstadoParaImprimir(TiposDeEstado estado) {
+    /*private String getEstadoParaImprimir(TiposDeEstado estado) {
         return switch (estado) {
             case PENDIENTE -> "Pendiente";
             case EN_PROCESO -> "En proceso";
@@ -126,9 +126,7 @@ public class ManejadorDeTareas {
         };
     }
 
-    public void modificarEstado(){
 
-    }
 
     public void parseTarea(String descripcion, String estado, String encargado, String cargo) {
         tareas.add(new Tarea(descripcion, parseEstado(estado), new Persona(encargado, cargo)));
@@ -136,5 +134,5 @@ public class ManejadorDeTareas {
 
     private TiposDeEstado parseEstado(String estado) {
         return TiposDeEstado.valueOf(estado);
-    }
+    }*/
 }

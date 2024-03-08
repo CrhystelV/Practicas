@@ -4,18 +4,23 @@ public class ManejadorDeProyectos {
     //todo agregar instancia de proyecto
 
     private final ManejadorDeTareas manejadorDeTareas = new ManejadorDeTareas();
-
+    ManejoDeArchivos manejoDeArchivos = new ManejoDeArchivos();
     public ManejadorDeProyectos() {
-        leerProyecto();
+
+    }
+    public ManejadorDeProyectos(ManejoDeArchivos manejador){
+        this.manejoDeArchivos = manejador;
+
     }
 
-    private void leerProyecto() {
+    /*private void leerProyecto() {
         leerTareas();
     }
 
     private void leerTareas() {
+
         try {
-            FileReader fileReader = new FileReader("INFORMACION DE PROYECTO.txt");
+            FileReader fileReader = new FileReader("TAREAS.txt");
             BufferedReader buffer = new BufferedReader(fileReader);
 
             while (buffer.readLine() != null) {
@@ -29,12 +34,11 @@ public class ManejadorDeProyectos {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void guardarTareas(){
         manejadorDeTareas.agregarTareas();
-
-        try(FileWriter archivo = new FileWriter("INFORMACION DE PROYECTO.txt", false)){
+        try(FileWriter archivo = new FileWriter(manejoDeArchivos.ruta, true)){
             PrintWriter bw = new PrintWriter(archivo);
 
             for(int i = 0; i < manejadorDeTareas.tareas.size(); i++){
@@ -51,7 +55,7 @@ public class ManejadorDeProyectos {
         }
     }
 
-    public void editarTareas() {
+    /*public void editarTareas() {
         manejadorDeTareas.editarTareas();
-    }
+    }*/
 }
