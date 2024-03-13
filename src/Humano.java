@@ -1,6 +1,6 @@
 public class Humano implements IMovimiento{
     @Override
     public void comoSeMueve() {
-        System.out.println("De a dos patas");
+        System.out.println("De a ds patas");
     }
 }
